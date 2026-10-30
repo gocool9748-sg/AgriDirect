@@ -16,6 +16,8 @@ COPY lib lib
 COPY sql sql
 # The host sets PORT; HOST=0.0.0.0 makes the server reachable from outside the container.
 ENV PORT=8080 HOST=0.0.0.0
+# Show order times in Indian time (servers run on UTC).
+ENV TZ=Asia/Kolkata
 EXPOSE 8080
 # First start creates the built-in database (data/) with the demo farmers, buyers and products.
-CMD ["java", "-cp", "out:lib/*", "com.agrimarket.web.WebServer"]
+CMD ["java", "-Duser.timezone=Asia/Kolkata", "-cp", "out:lib/*", "com.agrimarket.web.WebServer"]
