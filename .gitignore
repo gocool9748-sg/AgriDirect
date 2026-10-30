@@ -1,0 +1,19 @@
+# Local database and settings (each computer / server creates its own)
+data/
+db.properties
+*.trace.db
+mysql/
+
+# Build output
+target/
+out/
+sources.txt
+manifest.txt
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
