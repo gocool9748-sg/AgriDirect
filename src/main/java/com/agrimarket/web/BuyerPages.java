@@ -178,7 +178,8 @@ final class BuyerPages {
             s.cart.clear();
         }
         s.ok(ids.size() == 1 ? "Order #" + ids.get(0) + " placed. The farmer will confirm it soon."
-                : ids.size() + " orders placed (one per farmer): #" + ids);
+                : ids.size() + " orders placed (one per farmer): "
+                        + ids.stream().map(i -> "#" + i).collect(java.util.stream.Collectors.joining(", ")) + ".");
         return Result.redirect("/buyer/orders");
     }
 

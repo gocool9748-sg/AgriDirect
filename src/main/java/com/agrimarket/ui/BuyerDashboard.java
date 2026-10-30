@@ -249,7 +249,8 @@ public class BuyerDashboard extends JFrame {
             search();
             loadOrders();
             UI.info(this, ids.size() == 1 ? "Order #" + ids.get(0) + " placed. The farmer will confirm it soon."
-                    : ids.size() + " orders placed (one per farmer): #" + ids);
+                    : ids.size() + " orders placed (one per farmer): "
+                        + ids.stream().map(i -> "#" + i).collect(java.util.stream.Collectors.joining(", ")) + ".");
             tabs.setSelectedIndex(2);
         }
     }
